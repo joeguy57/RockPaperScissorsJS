@@ -5,7 +5,6 @@
 	<meta charset = "UTF-8" >
 	<title >Rock Paper Scissors</title >
 	<link rel = "stylesheet" href = "CSS/indexEdit.css" >
-	<script src = "JavaScript/brain.js" ></script >
 </head >
 <body >
 <header>
@@ -17,19 +16,22 @@
 	<span id="userScore">0</span>:<span id="compScore">0</span>
 </div>
 <div class="outcome">
-	<p>Paper Covers Rock. You Win</p>
+	<p><span class="userCrl" id="userCtrl">Paper</span> <span id="actOn">Covers</span>  <span class="compCrl"
+	                                                                                          id="compCtrl">Rock
+	</span> <span id="results"> . You Win!</span></p>
 </div>
 <div class="userOptions">
-	<div class="option" id="rock">
+	<div class="option" id="r">
 		<img src = "Images/Rock.png" height = "125" width = "100"  alt="rock"/>
 	</div>
-	<div class="option" id="paper">
+	<div class="option" id="p">
 		<img src = "Images/Paper.png" height = "125" width = "100" alt="paper" />
 	</div>
-	<div class="option" id="scissors">
+	<div class="option" id="s">
 		<img src = "Images/Scissors.png" height = "125" width = "100" alt="scissors"/>
 	</div>
 </div>
 <p id="action">Make your Move</p>
+<script src = "JavaScript/brain.js" ></script >
 </body >
 </html >
