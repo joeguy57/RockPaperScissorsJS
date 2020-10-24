@@ -1,7 +1,8 @@
 //Variables for the score board
 let userScore = 0;
 let compScore = 0;
-var audio = new Audio();
+let gameMode = false;
+let audio = new Audio();
 const userScoreSp = document.getElementById("userScore");
 const compScoreSp = document.getElementById("compScore");
 const userCtrlSp = document.getElementById("userCtrl");
@@ -9,11 +10,31 @@ const compCtrlSp = document.getElementById("compCtrl");
 const actOnSp = document.getElementById("actOn");
 const resultSp = document.getElementById("results")
 const scoreBoardDiv = document.querySelector(".score");
+const easyButton = document.getElementById("easy");
+const hardButton = document.getElementById("hard");
 //Variables for the buttons
 const rockDiv = document.getElementById("r");
 const paperDiv = document.getElementById("p");
 const scissorsDiv = document.getElementById("s");
 //Functions
+function hardGameMode(userMove) {
+    const choices = ['r', 'p', 's'];
+    let int;
+    switch (userMove){
+        case "r":
+            int = 1;
+            break;
+        case "p":
+            int = 2;
+            break;
+        case "s":
+            int = 0;
+            break;
+        default:
+            break;
+    }
+    return choices[int];
+}
 function compMove(){
     const choices = ['r', 'p', 's'];
     const int =Math.floor(Math.random() * 3);
@@ -137,7 +158,14 @@ function result(usersMov, compChoice, indexState) {
 }
 
 function game(usersMove) {
-    const compChoice = compMove();
+    let compChoice;
+    console.log(gameMode);
+    if (gameMode === true){
+        compChoice = hardGameMode(usersMove);
+    }
+    else {
+        compChoice = compMove();
+    }
     switch (usersMove + compChoice) {
         case "rs":
         case "sp":
@@ -160,6 +188,11 @@ function main() {
     /**
      * Here we will be creating an event listener to to get input of the user
      * */
+
+    hardButton.addEventListener('click', function () {
+        gameMode = true;
+    })
+
     rockDiv.addEventListener('click', function () {
         audio.src = "sounds/rock.mp3";
         audio.play();

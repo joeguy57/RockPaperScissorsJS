@@ -103,3 +103,24 @@ body{
     border: 4px solid gray;
     box-shadow: 0 0 10px gray;
 }
+
+.mode{
+    text-align: center;
+    margin: 40px auto;
+    color: #f8f1f1;
+}
+
+.modeBu{
+    display: inline-block;
+    border: 4px solid #073b4c;
+    background: #06D6A0 ;
+    padding: 15px 20px;
+    font-size: 20px;
+}
+
+.modeBu:hover{
+    cursor: pointer;
+    background: #049F76;
+    box-shadow: 0 0 10px #38FAC6;
+}
+
