@@ -159,7 +159,6 @@ function result(usersMov, compChoice, indexState) {
 
 function game(usersMove) {
     let compChoice;
-    console.log(gameMode);
     if (gameMode === true){
         compChoice = hardGameMode(usersMove);
     }
@@ -190,7 +189,15 @@ function main() {
      * */
 
     hardButton.addEventListener('click', function () {
+        audio.src = "sounds/hard.mp3";
+        audio.play();
         gameMode = true;
+        scoreBoardDiv.classList.add("hard");
+        setTimeout(function (){audio.pause()}, 5000)
+    })
+    easyButton.addEventListener('click', function () {
+        gameMode = false;
+        scoreBoardDiv.classList.remove("hard");
     })
 
     rockDiv.addEventListener('click', function () {
